@@ -10,6 +10,7 @@
 
 
 <script type="module">
+	// import {GeosphereGraph} from 'https://cdn.jsdelivr.net/gh/luke-ff/GeosphereGraph/geosphere.js';
 	import {GeosphereGraph} from './geosphere.js';
 
     GeosphereGraph.run(
@@ -19,8 +20,9 @@
             range: 6,
             plots: GeosphereGraph.FF + GeosphereGraph.DD + GeosphereGraph.FD, 
             plotsettings: {
-                widht:800,
-                height:150,
+                style: {
+					fontSize:"12pt"
+				}
             } 
         }
     );

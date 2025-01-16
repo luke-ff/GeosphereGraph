@@ -14,8 +14,6 @@ export const GeosphereGraph = (function() {
 
 
     const baseSettings = {
-        width:600,
-        height:200,
         marginLeft:50,
         marginRight:30,
         style: {
