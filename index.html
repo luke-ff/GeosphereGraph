@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Geosphere Test</title>
+
+</head>
+    <body>
+
+        <div id="container"></div>
+
+
+
+<script type="module">
+	import {GeosphereGraph} from './geosphere.js';
+
+    GeosphereGraph.run(
+        document.getElementById("container"), 
+        { 
+            station: 11152,
+            range: 6,
+            plots: GeosphereGraph.FF + GeosphereGraph.DD + GeosphereGraph.FD, 
+            plotsettings: {
+                widht:800,
+                height:150,
+            } 
+        }
+    );
+    
+</script>	
+
+        
+    </body>
+</html>
