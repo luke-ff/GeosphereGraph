@@ -17,7 +17,7 @@ export const GeosphereGraph = (function() {
         marginLeft:50,
         marginRight:30,
         style: {
-            fontSize:10,
+            fontSize:'10pt',
         }
     }
 
