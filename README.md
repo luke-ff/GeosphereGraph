@@ -47,10 +47,14 @@ Enddatum des Graphen (Default: Aktuelle Uhrzeit)
 Breite des Graphen in Stunden
 
 ### plotsettings
-Zusätzliche Einstellungen für die Graphen, siehe auch https://observablehq.com/plot/features/plots#layout-options
-````
-{       width:600,
+Zusätzliche Einstellungen für die Graphen, siehe auch https://observablehq.com/plot/features/plots#layout-options  
+Default-Wert
+```
+{
+       width:600,
         height:200,
         marginLeft:50,
-        marginRight:30}
+        marginRight:30
+}
 ```
+
