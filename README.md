@@ -48,13 +48,31 @@ Breite des Graphen in Stunden
 
 ### plotsettings
 Zusätzliche Einstellungen für die Graphen, siehe auch https://observablehq.com/plot/features/plots#layout-options  
-Default-Wert
+Default-Wert:
+```
+{
+        marginLeft:50,
+        marginRight:30,
+        style: {
+            fontSize:'10pt',
+        }
+}
+```
+
+das Style-Attribute wird auf das SVG-Element des Graphen angewandt.
+
 ```
 {
        width:600,
-        height:200,
-        marginLeft:50,
-        marginRight:30
+       height:200,
+       marginLeft:50,
+       marginRight:30,
+       inset:10,
+       style: {
+                "width":"auto",
+                "min-width":"100%",
+                "font-size":"10px"
+        }
 }
 ```
 
