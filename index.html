@@ -1,7 +1,13 @@
 <html>
 <head>
 <title>Geosphere Test</title>
+<style>
+	body {
+		font-family:sans-serif;
+	}
 
+	
+</style>
 </head>
     <body>
 
@@ -10,7 +16,9 @@
 
 
 <script type="module">
+	/* Diesen Link verwenden, wenn das Script nicht lokal gespeichert werden soll */
 	// import {GeosphereGraph} from 'https://cdn.jsdelivr.net/gh/luke-ff/GeosphereGraph/geosphere.js';
+	/* Lokale Version verwenden */
 	import {GeosphereGraph} from './geosphere.js';
 
     GeosphereGraph.run(
@@ -18,10 +26,15 @@
         { 
             station: 11152,
             range: 6,
-            plots: GeosphereGraph.FF + GeosphereGraph.DD + GeosphereGraph.FD, 
+            plots: GeosphereGraph.FF + GeosphereGraph.DD + GeosphereGraph.FD + GeosphereGraph.P, 
             plotsettings: {
+				width:700,
+				height:200,
+				inset:10,
                 style: {
-					fontSize:"12pt"
+					width:"auto",
+					minWidth:"100%",
+					fontSize:"9px"
 				}
             } 
         }
