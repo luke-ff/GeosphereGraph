@@ -10,7 +10,11 @@
 </style>
 </head>
     <body>
-<h1>Mattsee</h1>
+<h1>Geosphere Graph</h1>
+<p>This project fetches data of one station from <a href="https://www.geosphere.at/de">Geosphere Austria</a> and displays it using <a href="https://observablehq.com/plot/">ObservableHQ Plot</a>
+<p>Visit <a href="https://github.com/luke-ff/GeosphereGraph">https://github.com/luke-ff/GeosphereGraph</a> for details</p>
+<p>This is live Data from Mattsee, Austria</p>
+<hr>
         <div id="container"></div>
 
 
@@ -25,7 +29,7 @@
         document.getElementById("container"), 
         { 
             station: 11152,
-            range: 6,
+            range: 12,
             plots: GeosphereGraph.FF + GeosphereGraph.DD + GeosphereGraph.FD + GeosphereGraph.P, 
             plotsettings: {
 				width:700,
