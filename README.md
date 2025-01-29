@@ -14,7 +14,7 @@ https://luke-ff.github.io/GeosphereGraph/
 import {GeosphereGraph} from 'https://cdn.jsdelivr.net/gh/luke-ff/GeosphereGraph/geosphere.js';
 GeosphereGraph.run( document.getElementById("container"), 
         { station: 11152,
-          plots: GeosphereGraph.LT + GeosphereGraph.P } );
+          plots: GeosphereGraph.TL + GeosphereGraph.P } );
 </script>
 ```
 
