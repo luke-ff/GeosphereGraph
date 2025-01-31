@@ -1,17 +1,20 @@
 
 # Geosphere Graph
 
+## Live-Demo
+
+https://luke-ff.github.io/GeosphereGraph/
 
 ## Einbettung in HTML-Seite
 
 
 ```
-<div id="container">
+<div id="container"></div>
 <script type="module">
 import {GeosphereGraph} from 'https://cdn.jsdelivr.net/gh/luke-ff/GeosphereGraph/geosphere.js';
 GeosphereGraph.run( document.getElementById("container"), 
         { station: 11152,
-          plots: GeosphereGraph.LT + GeosphereGraph.P }
+          plots: GeosphereGraph.TL + GeosphereGraph.P } );
 </script>
 ```
 
