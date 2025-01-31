@@ -194,12 +194,6 @@ export const GeosphereGraph = (function() {
                 grid: true,
                 label: "",
             },
-            /*y: {
-                axis: "left", 
-                tickSize:1,
-                label: "",
-                grid: true,
-            },*/
             marks: marks,
     		title: "Wind"
         },plotextras,overrideSettings, {height:140, marginLeft:20, marginRight:20});
