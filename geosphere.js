@@ -10,16 +10,23 @@ export const GeosphereGraph = (function() {
     var searchParams = {
         "station_ids":11152,
         "parameters":"TL,DD,DDX,FF,FFX,PRED",
-    }
-
-
+    };
+    var shortTimeFormat = new Intl.DateTimeFormat("de-DE", {
+        timeStyle: "short",
+    });
+    var nf = new Intl.NumberFormat("de-DE", {
+        maximumFractionDigits: 1,
+        minimumFractionDigits: 0
+    });
     const baseSettings = {
         marginLeft:50,
         marginRight:30,
         style: {
             fontSize:'10pt',
+		  
+		
         }
-    }
+    };
 
     var overrideSettings = {}
     
@@ -119,7 +126,8 @@ export const GeosphereGraph = (function() {
                             const plotsettings = Object.assign({
                     										x: d => d.ts,
                     										y: settings.field,
-                                                            tip: true
+                                                            tip: true,
+                                                            title: d => `${nf.format( d[settings.field] ) }${ylabel} @ ${shortTimeFormat.format(d.ts)}`
                                             }, settings.extras );
                 
                             return Plot.lineY(data, plotsettings);
@@ -134,7 +142,7 @@ export const GeosphereGraph = (function() {
 
             marks.push(Plot.crosshairX(data, {
                             x: d => d.ts,
-                            y: d => d[field1],
+                            y: d => d[field1]
                         }));
 
 
@@ -168,16 +176,25 @@ export const GeosphereGraph = (function() {
 
     function windplot(data, plotextras={}) {
 
-        const nf = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 })
+        const direction = d => {
+            const richtungen = [
+                "N", "NNO", "NO", "ONO",
+                "O", "OSO", "SO", "SSO",
+                "S", "SSW", "SW", "WSW",
+                "W", "WNW", "NW", "NNW"
+            ];
+
+            return richtungen[ Math.floor( (d + 360 + 360/32) / (360/16) ) % 16 ];
+        };
         
         const marks = [Plot.vectorX(data, {
                 x:"ts",
-                rotate:"dd" ,
+                rotate: d => d.dd - 180,
                 length: 20,
                 stroke:"ff",
             }), Plot.tip(data, Plot.pointer({
                 x:"ts",
-                title: (d) => `Windrichtung: ${d.dd}°\n\nWindspeed: ${nf.format(d.ff)} kts\n\nBöen: ${nf.format(d.ffx)}kts aus ${d.ddx}°`
+                title: (d) => `Uhrzeit: ${shortTimeFormat.format(d.ts)}\n\nWind: ${nf.format(d.ff)}kts aus ${direction(d.dd)} / ${d.dd}°\n\nBöen: ${nf.format(d.ffx)}kts aus ${direction(d.ddx)} / ${d.ddx}°`
             }))
                        
         ];
@@ -194,12 +211,6 @@ export const GeosphereGraph = (function() {
                 grid: true,
                 label: "",
             },
-            /*y: {
-                axis: "left", 
-                tickSize:1,
-                label: "",
-                grid: true,
-            },*/
             marks: marks,
     		title: "Wind"
         },plotextras,overrideSettings, {height:140, marginLeft:20, marginRight:20});
